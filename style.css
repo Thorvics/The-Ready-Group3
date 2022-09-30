@@ -1,0 +1,180 @@
+*{
+    list-style:none;
+    text-decoration: none;
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: arial;
+}
+body{
+    background: white;
+}
+/* NAVBAR START*/
+.wrapper .sidebar{
+    background:rgb(169, 169, 202);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}
+.wrapper .sidebar ul li a{
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px;
+    color: white;
+    font-size: 16px;
+}
+.navbar{
+    background-color:#2f2Fa2;
+}
+.nav-link{
+    padding-left: 9px;
+    color: white;
+}
+.nav-link:hover{
+    background-color: #F64C72;
+}
+.offcanvas{
+    background-color: #2f2Fa2;
+}
+/* NAVBAR END*/
+/* HEADER IMAGE START*/
+.container-fluid{
+    position: relative;
+}
+
+#carouselhomepage::before{
+    content:"";
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background: black;
+    opacity: 0.6;
+}
+.ok{
+    position: absolute;
+    
+}
+#business-caption{
+    font-size: 80px;
+    font-weight: bold;
+    text-shadow: 10px 10px 15px rgba(0, 0, 0, 0.9);
+}
+/* HEADER IMAGE END*/
+
+/* IMAGE BEFORE HEADER START*/
+.image-search{
+    width: 390px;
+    height: 400px;
+    object-fit:cover;
+}
+
+/*END OF HOME PAGE*/
+
+
+
+/*PAYMENT*/
+
+.containers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    min-height: 100vh;
+    padding-bottom: 70%;
+}
+
+.containers form{
+    padding: 20px;
+    width: 700px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0,.1 );
+}
+ 
+.containers form .row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.containers form .row .col{
+    flex:1  1 250px;
+}
+
+.containers form .row .col .title{
+    font-size: 20px;
+    color: #333;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.containers form .row .col .inputbox{
+    margin: 15px 0;
+}
+
+.containers form .row .col .inputbox span{
+    margin-bottom: 10px;
+    display: block;
+}
+
+.containers form .row .col .inputbox input{
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-size: 15px;
+    text-transform: none;
+}
+ 
+.containers form .row .col .inputbox input:focus{
+    border: 1px solid #000;
+}
+
+.containers form .row .col .flex{
+    display: flex;
+    gap: 15px;
+}
+
+.containers form .row .col .flex .inputbox{
+    margin-top: 5px;
+}
+
+/* about us */
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    }
+
+    .social-link:hover,
+    .social-link:focus {
+    background: #ddd;
+    text-decoration: none;
+    color: #555;
+    }
+
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+/* end of about us */
+    .footer1{
+    background-color:#2f2Fa2;
+    }

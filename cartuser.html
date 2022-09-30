@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CART</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!--BOOTSTRAP Link-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!--ICON Link-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  .cart-page{
+    margin: 8px auto;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+ th{
+    text-align: left;
+    padding: 5px;
+    color: #fff;
+    background: #ff523b;
+    font-weight: normal;
+ }
+
+ td{
+    padding: 10px 5px;
+ }
+
+ td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+ }
+
+ td a{
+    color: #ff523b;
+    font-size: 12px;
+ }
+
+ td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+ }
+
+ .total-price{
+    display: flex;
+    justify-content: flex-end;
+ }
+
+ .total-price table{
+    border: 3px solid #ff523b;
+    width: 100%;
+    max-width: 480px;
+ }
+ td:last-child {
+    text-align: right;
+ }
+ th:last-child{
+    text-align: right;
+ }
+.btn{
+    float: right;
+}
+</style>
+<body>
+   <!--NAVBAR START-->
+  <div class="container">
+   <nav class="navbar fixed-top">
+    <div class="container-fluid p-0">
+      <button class="navbar-toggler border-0" 
+              type="button" 
+              data-bs-toggle="offcanvas" 
+              data-bs-target="#offcanvasNavbar" 
+              aria-controls="offcanvasNavbar">
+              <i class="bi bi-list text-white mx-1" style="font-size:35px"></i>
+      </button>
+        <a class="navbar-brand m-0 " href="indexuser.html"><img src="Image/The Ready Logo 5.png" style="width:150px;"></a>
+    
+        <form class="input-group p-2" role="search" style="width:570px;">
+          <input type="text" class="form-control" placeholder="Search items etc." arial-label="search">
+          <i class="bi bi-search btn fw-bold text-dark" style="background-color:#ffffff;" type="submit"></i>        
+        </form>
+
+          <div class="d-flex">
+            <div class="p-2 me-3 d-none d-lg-block">
+                <a class="text-light text-decoration-none" href="">
+                <i class="bi bi-person-circle text-light pe-2" 
+                 style="font-size:30px;"></i></a>
+            </div>
+
+            <div class="p-2 me-3 d-none d-lg-block">
+                <a href="cartuser.html" class="align-baseline text-light" >
+                <i class="bi bi-cart" style="font-size:30px;"></i></a>
+            </div>
+          </div>
+           
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <a class="navbar-brand me-1 ms-2" href="indexuser.html"><img src="Image/The Ready Logo 5.png" style="width:120px;"></a>
+                <div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a class="text-center text-light fw-bold text-decoration-none" href="">
+                <i class="bi bi-person-circle text-light" 
+                style="font-size:80px;"></i><p>Welcome User</p></a>
+            </div>
+
+            <div class="offcanvas-body p-0">
+                <br>
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-0">
+                <li class="nav-item fw-bold">
+                    <a class="nav-link" aria-current="page" href="indexuser.html"><i class="bi bi-house-door" style="font-size:25px; "></i><span class="ms-4">Home</span></a>
+                </li>
+                <li class="nav-item fw-bold">
+                    <a class="nav-link" href="indexcategoriesuser.html"><i class="bi bi-list-ul fst-normal" style="font-size:25px;"></i>
+                    <span class="ms-3">Categories</span></a>
+                </li>
+                <li class="nav-item fw-bold">
+                    <a class="nav-link" href="#"><i class="bi bi-geo-alt" style="font-size:25px;"></i>
+                    <span class="ms-3">Add Location</span></a>
+                </li>
+                <li class="nav-item fw-bold">
+                  <a class="nav-link" href="cartuser.html"><i class="bi bi-cart" style="font-size:25px;"></i>
+                  <span class="ms-3">Cart</span></a>
+                </li>
+                <li class="nav-item fw-bold">
+                    <a class="nav-link" href="" 
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalhistory"><i class="bi bi-clock-history" style="font-size:25px;"></i></i>
+                    <span class="ms-3">History</span></a>
+                </li>
+                <br>
+                <div class="d-flex justify-content-end px-5">
+                    <a class="btn text-light fw-bold" 
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalsignout" style="background-color:#F64C72;">
+                    <i class="bi bi-box-arrow-left pe-2" style="font-size:20px;"></i>Sign out</a>
+                </div>
+                
+              </ul>
+              <br>
+            </div>
+        </div>
+    </div>
+  </nav>
+
+  <!--NAVBAR END-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3>CART</h3>
+<br>
+<br>
+
+<div class="small-container cart-page">
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+    </tr>
+    <tr>
+      <td>
+      <div class="cart-info">
+        <img src="Image-men/tshirt6.jpg" >
+        <div>
+          <p>Printed Shirt</p>
+          <small>Price: php50.00</small>
+          <br>
+          <a href="">Remove</a>
+        </div>
+      </div>
+
+      </td>
+      <td><input type="number" value="1"></td>
+      <td>php50.00</td>
+
+    </tr>
+    <tr>
+      <td>
+        <div class="cart-info">
+          <img src="Image-men/tshirt6.jpg">
+          <div>
+            <p>Printed Shirt</p>
+            <small>Price: php50.00</small>
+            <br>
+            <a href="">Remove</a>
+          </div>
+        </div>
+    
+      </td>
+      <td><input type="number" value="1"></td>
+      <td>php50.00</td>
+    
+    </tr>
+    <tr>
+      <td>
+        <div class="cart-info">
+          <img src="Image-men/tshirt6.jpg">
+          <div>
+            <p>Printed Shirt</p>
+            <small>Price: php50.00</small>
+            <br>
+            <a href="">Remove</a>
+          </div>
+        </div>
+    
+      </td>
+      <td><input type="number" value="1"></td>
+      <td>php50.00</td>
+    
+    </tr>
+  </table>
+</div>
+
+<div class="total-price">
+  <table>
+    <tr>
+      <td>Subtotal</td>
+      <td>php150.00</td>
+    </tr>
+    <tr>
+      <td>Tax</td>
+      <td>php5.00</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td>php155.00</td>
+    </tr>
+  </table>
+</div>
+<br>
+<br>
+<a class="btn btn-primary" href="payment.html" role="button">Proceed to Payment</a>
+
+
+<!--MODAL HISTORY START-->
+<div class="modal fade" id="modalhistory" tabindex="-1">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="modaltitle">
+                  Notice!
+              </h5>
+              
+          </div>
+
+          <div class="modal-body">
+              <p>You don't have any Purchased Items yet.</p>
+          </div>
+          <div class="modal-footer">
+              <a class="btn btn-secondary" type="button" data-bs-dismiss="modal"
+              aria-label="close">
+                  Close
+              </a>
+          </div>
+      </div>
+  </div>
+</div>
+<!--MODAL HISTORY END-->
+<!--MODAL SIGN OUT START-->
+<div class="modal fade" id="modalsignout" tabindex="-1">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="modaltitle">
+                  Choose
+              </h5>
+          </div>
+
+          <div class="modal-body">
+              <p>Are you sure you want to Sign out ?</p>
+          </div>
+          <div class="modal-footer">
+              <a class="btn btn-secondary" type="button" data-bs-dismiss="modal"
+              aria-label="close">
+                  Close
+              </a>
+              <a class="btn btn-primary" href="index.html">
+                  Yes
+              </a>
+          </div>
+      </div>
+  </div>
+</div>
+<!--MODAL SIGN OUT END-->
+</div>
+
+<br><br><br><br>
+
+  <!-- Footer -->
+<footer class="text-center text-lg-start text-muted footer1">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span class=" text-light">Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset text-light">
+        <i class="fab fa-facebook-f text-light"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter text-light"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google text-light"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram text-light"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin text-light"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github text-light"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4 text-light">
+            <i class="fas fa-gem me-3 text-light"></i>The Ready
+          </h6>
+          <p class="text-light">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4 text-light">
+            Services
+          </h6>
+          <p class="text-light">
+            <a href="./aboutus.html" class="text-reset text-light">Aboutus</a>
+          </p>
+          <p class="text-light">
+            <a href="./newsletter.html" class="text-reset text-light">Newsletter</a>
+          </p>
+          <!-- <p>
+            <a href="#!" class="text-reset text-light">Suggestion</a>
+          </p> -->
+          <p class="text-light">
+            <a href="#!" class="text-reset text-light">Feedback</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4 text-light">Contact</h6>
+          <p class="text-light"><i class="fas fa-home me-3 text-light"></i> 18th floor, The W Fifth Avenue, 5th Ave, Taguig, 1630 Metro Manila</p>
+          <p class="text-light">
+            <i class="fas fa-envelope me-3 text-light"></i>
+            info@TheReady.com
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4 text-light" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2021 Copyright:
+    <a class="text-reset fw-bold text-light" href="#">TheReady</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+  
+  <!--javascript Link-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+  
+  </html>
